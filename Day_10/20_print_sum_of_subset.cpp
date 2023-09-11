@@ -1,19 +1,20 @@
-// Print the sum of all subsets of an array .
+// Print the sum of all subsets of an array.
+
+/* Approach 
+To solve the problem iterating through each element in the set, and two recursive calls  is madee  at each position: one to include the current element in the subset being generated, and another to exclude it. The base case of the recursion occurs when the current index reaches the size of the input set, at which point the current sum is added to a vector of final sums.*/
 
 #include<iostream>
 #include<vector>
 using namespace std;
 
-void sum_substring(int *set,int n, int i,int sum, vector<int> &substring){
+void sum_subset(int *set,int n, int i,int sum, vector<int> &subset){
     if(i==n){
-        substring.push_back(sum);
+        subset.push_back(sum);
         return;
     }
-    sum_substring(set,n,i+1,sum +set[i],substring);
-    sum_substring(set,n,i+1,sum ,substring);
-    
-
-}
+    sum_subset(set,n,i+1,sum +set[i],subset);
+    sum_subset(set,n,i+1,sum ,subset);
+   }
  
 int main(){
     int n;
@@ -24,10 +25,10 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>set[i];
     }
-    vector<int> substring;
-    sum_substring(set,n,0,0,substring);
-    for(int i=0;i<substring.size();i++){
-        cout<<substring[i]<<" ";
+    vector<int> subset;
+    sum_subset(set,n,0,0,subset);
+    for(int i=0;i<subset.size();i++){
+        cout<<subset[i]<<" ";
 
     }
 } 

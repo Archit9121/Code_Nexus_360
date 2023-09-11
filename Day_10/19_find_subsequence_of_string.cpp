@@ -4,6 +4,7 @@
 /* Approach 
 To solve the problem iterating through each character of the input string, and  two recursive calls  is madee at each position: one to include the character in the substring being generated, and another to exclude it. The base case of the recursion occurs when the current index reaches the length of the input string, at which point the current substring is added to a vector.
 */
+
 #include<iostream>
 #include<vector>
 #include<string>
